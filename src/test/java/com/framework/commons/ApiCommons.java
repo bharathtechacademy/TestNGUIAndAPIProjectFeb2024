@@ -19,9 +19,12 @@ public class ApiCommons extends Reports{
 	//method to get the response
 	public Response getResponse(String requestType, String endPoint, String reqBody) {
 		Response resp = null;
-		RestAssured.baseURI = prop.getProperty("baseurl");
-		String token = prop.getProperty("token");
-		String owner= prop.getProperty("owner");
+		// RestAssured.baseURI = prop.getProperty("baseurl");
+		// String token = prop.getProperty("token");
+		// String owner= prop.getProperty("owner");
+		RestAssured.baseURI = "https://api.github.com";
+		String token = "Bearer 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";
+		String owner= "bharathtechacademy";
 		
 		if(requestType.equalsIgnoreCase("GET")) {
 			resp = given().headers("Authorization",token).when().get(endPoint);
